@@ -1,7 +1,7 @@
 {
   "name": "showcase3",
   "author": "CourseIT",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "showcase3",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -19,7 +19,7 @@
     "roboto-fontface": "*",
     "vue": "^3.2.37",
     "vue-class-component": "^8.0.0-rc.1",
-    "vuetify": "^3.0.0-beta.4",
+    "vuetify": "^3.0.0-beta.5",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
