@@ -4,7 +4,7 @@
     href="https://corchestra.ru"
     target="_blank"
   >
-    <v-img :src="require('../assets/logo-platform.svg')" />
+    <v-img :src="getImageUrl()" />
   </a>
 </template>
 
@@ -12,6 +12,13 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "LogoPlatform",
+
+  setup() {
+    const getImageUrl = () => {
+      return new URL(`../assets/logo-platform.svg`, import.meta.url).href;
+    };
+    return { getImageUrl };
+  },
 
   data: () => ({}),
 });
