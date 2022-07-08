@@ -1,7 +1,7 @@
 {
   "name": "showcase3",
   "author": "CourseIT",
-  "version": "1.0.70",
+  "version": "1.0.78",
   "description": "showcase3",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -11,7 +11,9 @@
   "homepage": "https://CourseOrchestra.github.io/showcase3-demo",
   "scripts": {
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "vitest": "vitest",
+    "vitest:ci": "vitest run"
   },
   "dependencies": {
     "@mdi/font": "^6.9.96",
@@ -27,6 +29,7 @@
     "@types/webfontloader": "^1.6.34",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
+    "@vitejs/plugin-vue": "^2.3.3",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-typescript": "^5.0.8",
@@ -47,8 +50,12 @@
     "sass-loader": "^13.0.2",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.4",
+    "vite": "^2.9.14",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
     "vue-cli-plugin-vuetify": "^2.5.1",
-    "webpack-plugin-vuetify": "^2.0.0-alpha.11"
+    "webpack-plugin-vuetify": "^2.0.0-alpha.11",
+    "vitest":"^0.17.1",
+    "happy-dom":"^6.0.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
