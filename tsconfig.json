@@ -5,6 +5,7 @@
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -14,28 +15,25 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env",
-      "jest",
-      "vitest/globals"
+      "cypress",
+      "vitest/globals",
+      "vite/client"
     ],
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/unit/*.ts",
+    "tests/unit/*.tsx",
+    "tests/cypress/**/*.ts",
+    "tests/cypress/**/*.tsx",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules"

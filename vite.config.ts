@@ -1,15 +1,13 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
+import path from "path";
 
-/* eslint @typescript-eslint/no-var-requires: "off" */
-const path = require("path");
-
-const publicPath =
-  process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/";
-
-// https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    host: "127.0.0.1",
+  },
+
   plugins: [
     {
       name: "vitest-plugin-beforeall",
@@ -19,18 +17,8 @@ export default defineConfig({
     },
 
     vue(),
-    // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
-    vuetify({
-      autoImport: true,
-    }),
+    vuetify(),
   ],
-  base: publicPath,
-  define: {
-    "process.env": {
-      VUE_APP_TITLE: "Демо showcase3",
-      BASE_URL: publicPath,
-    },
-  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
@@ -44,18 +32,4 @@ export default defineConfig({
       inline: ["vuetify"],
     },
   },
-
-  /* remove the need to specify .vue files https://vitejs.dev/config/#resolve-extensions
-  resolve: {
-    extensions: [
-      '.js',
-      '.json',
-      '.jsx',
-      '.mjs',
-      '.ts',
-      '.tsx',
-      '.vue',
-    ]
-  },
-  */
 });

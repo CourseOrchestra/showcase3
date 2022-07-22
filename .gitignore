@@ -2,9 +2,10 @@
 node_modules
 /dist
 
-/tests/e2e/videos/
-/tests/e2e/screenshots/
+/tests/cypress/videos/
+/tests/cypress/screenshots/
 
+stats.html
 
 # local env files
 .env.local

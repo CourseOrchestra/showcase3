@@ -1,7 +1,7 @@
 {
   "name": "showcase3",
   "author": "CourseIT",
-  "version": "1.0.78",
+  "version": "1.2.1",
   "description": "showcase3",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -10,54 +10,49 @@
   },
   "homepage": "https://CourseOrchestra.github.io/showcase3-demo",
   "scripts": {
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "vitest": "vitest",
-    "vitest:ci": "vitest run"
+    "test:tsc": "vue-tsc --noEmit",
+    "test:unit": "vitest",
+    "test:unit:ci": "vitest run",
+    "test:component": "cypress open --component --browser chrome",
+    "test:component:ci": "cypress run --headless --component --browser chrome",
+    "lint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@mdi/font": "^6.9.96",
-    "core-js": "^3.23.3",
-    "roboto-fontface": "*",
+    "@mdi/font": "^7.0.96",
+    "core-js": "^3.23.5",
+    "roboto-fontface": "^0.10.0",
     "vue": "^3.2.37",
     "vue-class-component": "^8.0.0-rc.1",
     "vuetify": "^3.0.0-beta.5",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@types/jest": "^28.1.4",
     "@types/webfontloader": "^1.6.34",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
-    "@vitejs/plugin-vue": "^2.3.3",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-plugin-typescript": "^5.0.8",
-    "@vue/cli-plugin-unit-jest": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@vitejs/plugin-vue": "^3.0.1",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.0.2",
-    "@vue/vue3-jest": "^28.0.1",
-    "babel-jest": "^28.1.2",
-    "eslint": "^8.19.0",
+    "cypress": "^10.3.1",
+    "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.2.0",
-    "jest": "^28.1.2",
+    "happy-dom": "^6.0.4",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
-    "ts-jest": "^28.0.5",
+    "start-server-and-test": "^1.14.0",
     "typescript": "^4.7.4",
-    "vite": "^2.9.14",
+    "vite": "^3.0.2",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
-    "vue-cli-plugin-vuetify": "^2.5.1",
-    "webpack-plugin-vuetify": "^2.0.0-alpha.11",
-    "vitest":"^0.17.1",
-    "happy-dom":"^6.0.2"
+    "vitest": "^0.18.1",
+    "vue-tsc": "^0.38.9",
+    "yorkie": "^2.0.0"
   },
-  "gitHooks": {
+ "gitHooks": {
     "pre-commit": "lint-staged"
   }
 }

@@ -4,13 +4,13 @@ module.exports = {
     node: true,
   },
   extends: [
-    "plugin:vue/vue3-essential",
+    "plugin:vue/vue3-recommended",
     "eslint:recommended",
     "@vue/typescript/recommended",
     "plugin:prettier/recommended",
   ],
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: "latest",
   },
   rules: {
     "no-console": "error",
@@ -18,15 +18,4 @@ module.exports = {
     "no-debugger": "error",
     "@typescript-eslint/no-unused-vars": "error",
   },
-  overrides: [
-    {
-      files: [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)",
-      ],
-      env: {
-        jest: true,
-      },
-    },
-  ],
 };
