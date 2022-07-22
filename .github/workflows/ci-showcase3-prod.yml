@@ -30,9 +30,14 @@ jobs:
       - name: Run linter
         run: npm run lint
 
+      - name: Run tsc
+        run: npm run test:tsc
+
       - name: Run unit tests
-        #run: npm run test:unit
-        run: npm run vitest:ci
+        run: npm run test:unit:ci
+
+      - name: Run component tests
+        run: npm run test:component:ci
 
       - name: Publish package on NPM
         run: npm publish

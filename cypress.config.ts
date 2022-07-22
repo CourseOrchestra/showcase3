@@ -5,13 +5,6 @@ export default defineConfig({
   screenshotsFolder: "tests/cypress/screenshots",
   videosFolder: "tests/cypress/videos",
 
-  /*
-  e2e: {
-    supportFile: "tests/cypress/support/e2e.ts",
-    specPattern: "tests/cypress/e2e/!**!/!*.cy.{js,jsx,ts,tsx}",
-  },
-*/
-
   component: {
     supportFile: "tests/cypress/support/component.ts",
     specPattern: "tests/cypress/component/**/*.cy.{js,jsx,ts,tsx}",

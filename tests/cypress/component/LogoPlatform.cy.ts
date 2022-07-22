@@ -1,9 +1,13 @@
-import WelcomePage from "@/components/WelcomePage.vue";
+import LogoPlatform from "@/components/LogoPlatform.vue";
 
-describe("WelcomePage.cy.ts", () => {
-  it("Welcome", () => {
-    cy.mount(WelcomePage);
-    cy.contains("h1", "Vue");
-    cy.contains("h1", "Vuetify");
+describe("LogoPlatform.cy.ts", () => {
+  it("LogoPlatform", () => {
+    cy.mount(LogoPlatform);
+    cy.get("a[href]").each(($el) => {
+      cy.wrap($el.attr("href"), { log: false }).should(
+        "include",
+        "corchestra.ru"
+      );
+    });
   });
 });

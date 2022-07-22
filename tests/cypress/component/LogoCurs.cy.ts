@@ -1,8 +1,10 @@
-import GridPage from "@/components/GridPage.vue";
+import LogoCurs from "@/components/LogoCurs.vue";
 
-describe("GridPage.cy.ts", () => {
-  it("Грид", () => {
-    cy.mount(GridPage);
-    cy.contains("h1", "Демонстрация грида");
+describe("LogoCurs.cy.ts", () => {
+  it("LogoCurs", () => {
+    cy.mount(LogoCurs);
+    cy.get("a[href]").each(($el) => {
+      cy.wrap($el.attr("href"), { log: false }).should("include", "curs.ru");
+    });
   });
 });
