@@ -1,7 +1,7 @@
 {
   "name": "showcase3",
   "author": "CourseIT",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "showcase3",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -9,6 +9,9 @@
     "url": "https://github.com/CourseOrchestra/showcase3"
   },
   "homepage": "https://CourseOrchestra.github.io/showcase3-demo",
+  "keywords": [
+    "showcase"
+  ],
   "scripts": {
     "test:tsc": "vue-tsc --noEmit",
     "test:unit": "vitest",
