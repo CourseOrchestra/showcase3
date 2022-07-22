@@ -1,5 +1,8 @@
 # showcase3
-Showcase на Vue3 + Vuetify3 + TypeScript
+
+Vue3 + Vuetify3 + TypeScript
+
+Vite + Vitest + Cypress
 
 ## Project setup
 ```
