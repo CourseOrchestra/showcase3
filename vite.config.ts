@@ -4,10 +4,6 @@ import vuetify from "vite-plugin-vuetify";
 import path from "path";
 
 export default defineConfig({
-  server: {
-    host: "127.0.0.1",
-  },
-
   plugins: [
     {
       name: "vitest-plugin-beforeall",
