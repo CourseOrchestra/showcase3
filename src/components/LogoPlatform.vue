@@ -8,18 +8,8 @@
   </a>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "LogoPlatform",
-
-  setup() {
-    const getImageUrl = () => {
-      return new URL(`../assets/logo-platform.svg`, import.meta.url).href;
-    };
-    return { getImageUrl };
-  },
-
-  data: () => ({}),
-});
+<script setup lang="ts">
+const getImageUrl = () => {
+  return new URL(`../assets/logo-platform.svg`, import.meta.url).href;
+};
 </script>
