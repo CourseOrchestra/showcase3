@@ -4,7 +4,7 @@
     href="http://www.curs.ru"
     target="_blank"
   >
-    <v-img :src="getImageUrl()" />
+    <vImg :src="getImageUrl()" />
   </a>
 </template>
 
