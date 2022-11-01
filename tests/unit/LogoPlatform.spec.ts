@@ -6,7 +6,7 @@ import LogoPlatform from "@/components/LogoPlatform.vue";
 const vuetify = createVuetify();
 
 describe("LogoPlatform.vue", () => {
-  it("Логотип Платформы", () => {
+  it.skip("Логотип Платформы", () => {
     const wrapper = mount(LogoPlatform, {
       global: {
         plugins: [vuetify],
