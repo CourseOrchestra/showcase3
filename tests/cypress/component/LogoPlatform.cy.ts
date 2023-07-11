@@ -6,7 +6,7 @@ describe("LogoPlatform.cy.ts", () => {
     cy.get("a[href]").each(($el) => {
       cy.wrap($el.attr("href"), { log: false }).should(
         "include",
-        "corchestra.ru"
+        "corchestra.ru",
       );
     });
   });
