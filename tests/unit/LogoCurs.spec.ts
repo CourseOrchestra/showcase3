@@ -6,7 +6,7 @@ import LogoCurs from "@/components/LogoCurs.vue";
 const vuetify = createVuetify();
 
 describe("LogoCurs.vue", () => {
-  it.skip("Логотип КУРСа", () => {
+  it("Логотип КУРСа", () => {
     const wrapper = mount(LogoCurs, {
       global: {
         plugins: [vuetify],

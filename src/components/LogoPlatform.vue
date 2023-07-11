@@ -9,7 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import imgUrl from "../assets/logo-platform.svg";
 const getImageUrl = () => {
-  return new URL(`../assets/logo-platform.svg`, import.meta.url).href;
+  return new URL(imgUrl, import.meta.url).href;
 };
 </script>
