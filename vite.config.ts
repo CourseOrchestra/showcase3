@@ -4,17 +4,7 @@ import vuetify from "vite-plugin-vuetify";
 import path from "path";
 
 export default defineConfig({
-  plugins: [
-    {
-      name: "vitest-plugin-beforeall",
-      config: () => ({
-        test: { setupFiles: ["./tests/unit/beforeall.ts"] },
-      }),
-    },
-
-    vue(),
-    vuetify(),
-  ],
+  plugins: [vue(), vuetify()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
