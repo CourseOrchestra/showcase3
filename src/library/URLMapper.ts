@@ -108,7 +108,11 @@ function parseAndStoreQuery(
     }
 
     if (query[key]) {
-      _query.query[key] = JSON.parse(query[key]!.toString());
+      try {
+        _query.query[key] = JSON.parse(query[key]!.toString());
+      } catch (e) {
+        continue;
+      }
     }
   }
 
