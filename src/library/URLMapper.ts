@@ -157,7 +157,7 @@ export function useURLMapper(useModel: Array<URLParam>) {
   useModel.forEach((param: URLParam) => {
     if (_query.query[param.name]) {
       param.props.forEach((prop: string) => {
-        if (typeof _query.query[param.name] === "object") {
+        if (typeof _query.query[param.name] === "object" && !param.obj.setter) {
           param.obj[prop] = _query.query[param.name][prop];
         } else {
           param.obj[prop] = _query.query[param.name];
