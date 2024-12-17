@@ -110,9 +110,11 @@ function parseAndStoreQuery(
     if (query[key]) {
       try {
         _query.query[key] = JSON.parse(query[key]!.toString());
-      } catch (e) {
-        continue;
-      }
+      } catch (
+        /* eslint-disable-next-line   @typescript-eslint/no-unused-vars */
+        e
+        /* eslint-disable-next-line  no-empty */
+      ) {}
     }
   }
 
