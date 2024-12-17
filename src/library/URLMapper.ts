@@ -156,13 +156,29 @@ let arrModel: Array<URLParam> = [];
 export function useURLMapper(useModel: Array<URLParam>) {
   useModel.forEach((param: URLParam) => {
     if (_query.query[param.name]) {
-      param.props.forEach((prop: string) => {
-        if (typeof _query.query[param.name] === "object" && !param.obj.setter) {
-          param.obj[prop] = _query.query[param.name][prop];
-        } else {
-          param.obj[prop] = _query.query[param.name];
-        }
-      });
+      if (param.obj.setter) {
+        console.log("1");
+        console.log(param);
+        console.log(_query);
+
+        param.obj.setter(_query.query[param.name]);
+      } else {
+        param.props.forEach((prop: string) => {
+          if (typeof _query.query[param.name] === "object") {
+            console.log("2");
+            console.log(param);
+            console.log(_query);
+
+            param.obj[prop] = _query.query[param.name][prop];
+          } else {
+            console.log("3");
+            console.log(param);
+            console.log(_query);
+
+            param.obj[prop] = _query.query[param.name];
+          }
+        });
+      }
     }
     _query.query[param.name] = param.obj;
     setWatcher(param.name);
