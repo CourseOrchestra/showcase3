@@ -1,6 +1,6 @@
-import { reactive, watch, App } from "vue";
-import { LocationQuery, Router } from "vue-router";
-import { WatchStopHandle } from "vue";
+import { reactive, watch, App } from 'vue';
+import { LocationQuery, Router } from 'vue-router';
+import { WatchStopHandle } from 'vue';
 
 interface DetailedFingerprint {
   [key: string]: string | null;
@@ -9,7 +9,7 @@ function queryFingerprint(query: LocationQuery): {
   fingerprint: string;
   detailedFingerprint: DetailedFingerprint;
 } {
-  let fingerprint = "";
+  let fingerprint = '';
   const detailedFingerprint: DetailedFingerprint = {};
   const keys = Object.keys(query).sort();
   for (const key_index in keys) {
@@ -17,7 +17,7 @@ function queryFingerprint(query: LocationQuery): {
     const value = query[key];
     key = encodeURIComponent(key);
     if (value == null) {
-      fingerprint += "&" + key;
+      fingerprint += '&' + key;
       detailedFingerprint[key] = null;
       continue;
     }
@@ -26,11 +26,11 @@ function queryFingerprint(query: LocationQuery): {
       ? value.map((v) => v && encodeURIComponent(v))
       : [value && encodeURIComponent(value)];
     values.sort();
-    let valueFingerprint = "";
+    let valueFingerprint = '';
     for (let i = 0; i < values.length; i++) {
-      valueFingerprint += "&" + key;
+      valueFingerprint += '&' + key;
       if (values[i] != null) {
-        valueFingerprint += "=" + values[i];
+        valueFingerprint += '=' + values[i];
       }
     }
     fingerprint += valueFingerprint;
@@ -56,10 +56,7 @@ let detailedFingerprint: DetailedFingerprint = {};
 let watchers: { [key: string]: WatchStopHandle } = {};
 
 function serializeChangedValue(key: string, value: object) {
-  const s = JSON.stringify(
-    value,
-    arrModel.filter((param) => param.name === key)[0].props,
-  );
+  const s = JSON.stringify(value, arrModel.filter((param) => param.name === key)[0].props);
   if (_query.rawQuery[key] === s) {
     return;
   }
@@ -69,7 +66,7 @@ function serializeChangedValue(key: string, value: object) {
   fingerprint = actualFingerprint.fingerprint;
   detailedFingerprint = actualFingerprint.detailedFingerprint;
 
-  router["replace"]({ query: _query.rawQuery });
+  router['replace']({ query: _query.rawQuery });
 }
 function setWatcher(key: string) {
   if (key in watchers) {
@@ -98,10 +95,7 @@ function handleRouteChange() {
   clearWatchers();
 }
 
-function parseAndStoreQuery(
-  query: LocationQuery,
-  actualDetailedFingerprint: DetailedFingerprint,
-) {
+function parseAndStoreQuery(query: LocationQuery, actualDetailedFingerprint: DetailedFingerprint) {
   for (const key of Object.keys(query)) {
     if (detailedFingerprint[key] === actualDetailedFingerprint[key]) {
       continue;
@@ -113,7 +107,6 @@ function parseAndStoreQuery(
       } catch (
         /* eslint-disable-next-line   @typescript-eslint/no-unused-vars */
         e
-        /* eslint-disable-next-line  no-empty */
       ) {}
     }
   }
@@ -151,6 +144,7 @@ export type URLParam = {
   name: string;
   obj: URLObject;
   props: Array<string>;
+  noneReactive?: boolean;
 };
 
 let arrModel: Array<URLParam> = [];
@@ -162,7 +156,7 @@ export function useURLMapper(useModel: Array<URLParam>) {
         param.obj.setter(_query.query[param.name]);
       } else {
         param.props.forEach((prop: string) => {
-          if (typeof _query.query[param.name] === "object") {
+          if (typeof _query.query[param.name] === 'object') {
             param.obj[prop] = _query.query[param.name][prop];
           } else {
             param.obj[prop] = _query.query[param.name];
@@ -171,13 +165,22 @@ export function useURLMapper(useModel: Array<URLParam>) {
       }
     }
     _query.query[param.name] = param.obj;
-    setWatcher(param.name);
+
+    if (!param.noneReactive) {
+      setWatcher(param.name);
+    }
   });
 
   arrModel.push(...useModel);
 
   useModel.forEach((param: URLParam) => {
     serializeChangedValue(param.name, _query.query[param.name]);
+  });
+}
+
+export function saveURLMapper(names: Array<string>) {
+  names.forEach((name: string) => {
+    serializeChangedValue(name, _query.query[name]);
   });
 }
 
